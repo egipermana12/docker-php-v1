@@ -9,3 +9,10 @@ sudo docker exec -it docker-php-v1-web-1 sh
 
 #untuk keluar dari bash sh 
 exit
+
+
+#untuk build setelah composer ditambahkan
+sudo docker compose up --build -d
+
+#untuk menampilkan list file
+ls -la
