@@ -25,3 +25,19 @@ sudo docker compose down
 #untuk menjalankan docker compse spesifik ke file tertentu
 #contoh disini docker-compose-dev.yml
 sudo docker compose -f docker-compose-dev.yml up --build -d
+
+
+#untuk install composer yang telah di definisikan di composer.json
+#masuk dulu ke folder app
+cd app
+
+#kemudian masukan commnd
+composer install --ignore-platform-reqs
+
+
+#setelah compose terinstall lalu jalankan dump autolod
+compose dump-autoload
+
+
+#setelah autolad tergenerate, jalankan kembali docker pada root folder menggunakan perintah
+sudo docker compose -f docker-compose-dev.yml up -d
