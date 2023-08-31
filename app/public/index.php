@@ -1,5 +1,20 @@
 <?php 
-//echo 'this text for test docker-compose.dev.yml';
+
+use App\Repository\TranslationRepository;
+use App\Repository\LanguageRepository;
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+	$translationRepository = new TranslationRepository();
+
+	$translation = $translationRepository->findForLanguage($_POST['language'], $_POST['phrase']) ?: 'Translation not found';
+}else{
+	$languageRepository = new LanguageRepository();
+    $languages = $languageRepository->findAll();
+}
+
+
 ?>
 
 <!doctype html>
@@ -77,8 +92,8 @@
         <h1 class="display-5 fw-bold text-white">Translate This</h1>
         <div class="col-lg-6 mx-auto">
             <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
-                <p class="fs-5 mb-4"><?php echo 'Your translation goes here'; ?></p>
-                <a href="/">Translate another</a>
+				<p class="fs-5 mb-4"><?php echo $translation; ?></p>	
+				<a href="/">Translate another</a>
             <?php else: ?>
 
             <p class="fs-5 mb-4">Select a language and enter your word(s).</p>
@@ -88,9 +103,11 @@
                     <div class="col">
                         <select name="language" class="form-select" aria-label="Default select example">
                             <option selected>Select a language</option>
-                                <option value="1">French</option>
-                                <option value="1">German</option>
-                                <option value="1">Spanish</option>
+							<?php foreach($languages as $language) : ?>
+								<option value="<?= $language->getId(); ?>">
+									<?= $language->getName(); ?>
+								</option>
+							<?php endforeach; ?>
                         </select>
                     </div>
                     <div class="col">

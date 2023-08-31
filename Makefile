@@ -41,3 +41,15 @@ compose dump-autoload
 
 #setelah autolad tergenerate, jalankan kembali docker pada root folder menggunakan perintah
 sudo docker compose -f docker-compose-dev.yml up -d
+
+
+#untuk membuat branch baru dan pindah branch
+git checkout -b
+
+#untuk merge branch silahkan pindah dulu ke branch master
+git switch master
+git merge nama branch
+
+
+#untuk run docker dengan spesifik env file
+sudo docker compose -f docker-compose.dev.yml --env-file
