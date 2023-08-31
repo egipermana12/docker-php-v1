@@ -2,8 +2,7 @@ version: '3.8'
 services:
   #ngix
   web:
-    build:
-      dockerfile: ./nginx/Dockerfile
+    image: nginx:latest
     ports:
       - "80:80"
     volumes:
@@ -13,6 +12,8 @@ services:
   app:
     build:
       dockerfile: ./php/Dockerfile
+    volumes:
+      - ./app:/var/www/html
   
   #mysql
   db:

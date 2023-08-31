@@ -12,7 +12,16 @@ exit
 
 
 #untuk build setelah composer ditambahkan
+#bisa juga untuk menjalankan perintah yang ada perintah build di docker-compose.yml
 sudo docker compose up --build -d
 
 #untuk menampilkan list file
 ls -la
+
+
+#untuk menghentikan container sedang aktif
+sudo docker compose down
+
+#untuk menjalankan docker compse spesifik ke file tertentu
+#contoh disini docker-compose-dev.yml
+sudo docker compose -f docker-compose-dev.yml up --build -d

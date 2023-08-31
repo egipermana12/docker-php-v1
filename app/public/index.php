@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+//echo 'this text for test docker-compose.dev.yml';
+?>
 
 <!doctype html>
 <html lang="en">
