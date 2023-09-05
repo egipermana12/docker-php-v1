@@ -53,3 +53,10 @@ git merge nama branch
 
 #untuk run docker dengan spesifik env file
 sudo docker compose -f docker-compose.dev.yml up --env-file namaenvfile up --build -d
+
+
+#untuk down dev composer
+sudo docker compose -f docker-compose.dev.yml down
+
+#setelah env.local dibuat jalankan kembali script 
+sudo docker compose -f docker-compose.dev.yml up --env-file .env.local up --build -d
