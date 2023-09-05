@@ -52,4 +52,4 @@ git merge nama branch
 
 
 #untuk run docker dengan spesifik env file
-sudo docker compose -f docker-compose.dev.yml --env-file
+sudo docker compose -f docker-compose.dev.yml up --env-file namaenvfile up --build -d
