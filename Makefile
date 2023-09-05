@@ -60,3 +60,10 @@ sudo docker compose -f docker-compose.dev.yml down
 
 #setelah env.local dibuat jalankan kembali script 
 sudo docker compose -f docker-compose.dev.yml up --env-file .env.local up --build -d
+
+#untuk build dan push dokcer image
+sudo docker login -u egipermana12 #untuk login docker
+
+sudo docker build --target app -t egipermana12/php-composer:1.0 -f ./php/Dockerfile . #untuk build image
+sudo docker image #untuk cek hasil build
+sudo docker push egipermana12/php-composer:1.0 #untuk push ke docker
