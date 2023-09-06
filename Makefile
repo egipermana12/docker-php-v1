@@ -67,3 +67,8 @@ sudo docker login -u egipermana12 #untuk login docker
 sudo docker build --target app -t egipermana12/php-composer:1.0 -f ./php/Dockerfile . #untuk build image
 sudo docker image #untuk cek hasil build
 sudo docker push egipermana12/php-composer:1.0 #untuk push ke docker
+
+
+#untuk menjalankan test unit
+sudo docker exec -it docker-php-v1-web-1 (nama container) sh
+./vendor/bin/phpunit --verbose tests(nama folder test)
