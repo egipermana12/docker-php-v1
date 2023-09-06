@@ -1,6 +1,6 @@
 <?php
 
-phpinfo();
+// phpinfo();
 
 
 use App\Repository\TranslationRepository;
